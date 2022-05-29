@@ -32,7 +32,7 @@ public class JsonToCsvApplication {
     @Bean
     public Function<KinesisFirehoseEvent, KinesisFirehoseTranformedDataEvent> jsonToCSV() {
         return e -> {
-            System.out.println(String.format("Start transform Kinesis Firehose event with invocation id %s", e.getInvocationId()));
+            log.info("Start transform Kinesis Firehose event with invocation id {}", e.getInvocationId());
             KinesisFirehoseTranformedDataEvent result = from(e);
             result.getRecords().forEach(mapEachRecordToJSON);
             log.info("Complete transform event");
@@ -73,7 +73,7 @@ public class JsonToCsvApplication {
             byte[] csvRecordContent = csvContent.getBytes();
             e.setData(ByteBuffer.wrap(csvRecordContent));
             e.setResult(KinesisAnalyticsOutputDeliveryResponse.Result.Ok);
-            System.out.println(String.format("Transform record with id %s", e.getRecordId()));
+            log.info("Transform record with id {}", e.getRecordId());
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>vn.ifa.study</groupId>
 	<artifactId>json-to-csv</artifactId>
-	<version>0.0.15</version>
+	<version>0.0.17</version>
 	<name>json-to-csv</name>
 	<description>Convert JSON to CSV</description>
 	<properties>
