@@ -1,3 +1,5 @@
 **/target/
 **/.settings/
 **/build.bat
+/kinesis-firehose-data-transform-json-to-csv/.classpath
+/kinesis-firehose-data-transform-json-to-csv/.project
